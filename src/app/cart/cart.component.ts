@@ -8,12 +8,12 @@ import { ProductService, ProductInCart } from '../services/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  currentCart:ProductInCart[] = [];
+  totalPrice:number = 0;
+
   fullName:string = '';
   address:string = '';
   creditCardNumber:string = '';
-
-  currentCart:ProductInCart[] = [];
-  totalPrice:number = 0;
   
   constructor(
     private productService:ProductService
@@ -21,6 +21,12 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentCart = this.productService.getCart();
+    this.totalPrice = this.productService.getCartTotal();
+  }
+
+  productQuantityChange(currentProduct:ProductInCart, event:any): void {
+    const newQuantity = event.target.value;
+    currentProduct.quantity = newQuantity;
     this.totalPrice = this.productService.getCartTotal();
   }
 

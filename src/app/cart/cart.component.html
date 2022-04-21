@@ -5,7 +5,14 @@
       <div class="cart-item-details">
         <h3>{{ currentProduct.product.name }}</h3>
         <p>${{ currentProduct.product.price }}</p>
-        <p>Amount: <input class="number-input" type="number" value="{{ currentProduct.quantity }}"></p>
+        <p>Amount: 
+          <input 
+            class="number-input" 
+            type="number" 
+            value="{{ currentProduct.quantity }}"
+            (change)="productQuantityChange(currentProduct, $event)"
+          >
+        </p>
       </div>
     </div>
     <h2>${{ totalPrice }}</h2>
