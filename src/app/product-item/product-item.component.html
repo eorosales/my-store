@@ -5,10 +5,12 @@
       src="{{ product.url }}"
     >
   </a>
-  <p>{{ product.name }}</p>
+  <h4>{{ product.name }}</h4>
   <p>${{ product.price }}</p>
-  <select class="select-input">
-    <option *ngFor="let quantity of quantities">{{ quantity }}</option>
-  </select>
-  <button>Add to Cart</button>
+  <app-form-add-to-cart
+    class="select-input"
+    [selectedProduct]="product"
+  >
+  </app-form-add-to-cart>
+
 </div>

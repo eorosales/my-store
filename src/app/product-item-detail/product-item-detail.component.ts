@@ -31,15 +31,5 @@ export class ProductItemDetailComponent implements OnInit {
         this.selectedProduct = product.find(p => p.id === Number(params.get('id'))) as Product;
       })
     })
-    this.quantities = this.productService.setQuantities();
-  }
-
-  onSubmit(): void {
-    const productQuantity = { 
-      product: this.selectedProduct,
-      quantity: this.selectedQuantity
-    }
-    this.productService.addProductToCart(productQuantity);
-    console.log(this.productService.productsInCart);
   }
 }

@@ -8,12 +8,10 @@
     <p>{{ selectedProduct.price }}</p>
     <p>{{ selectedProduct.description }}</p>
     
-    <form (ngSubmit)="onSubmit()" >
-      <select class="select-input" [(ngModel)]="selectedQuantity" name="selectedQuantity">
-        <option *ngFor="let quantity of quantities">{{ quantity }}</option>
-      </select>
-      <input type="submit" value="Add to Cart">
-    </form>
+    <app-form-add-to-cart
+      [selectedProduct]="selectedProduct"
+    >
+    </app-form-add-to-cart>
 
     <a routerLink="/" class="back-link">Back to products list</a>
 
