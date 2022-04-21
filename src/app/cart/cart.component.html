@@ -1,0 +1,11 @@
+<div class="cart-container">
+  <div class="cart-item-details">
+    <div *ngFor="let currentProduct of currentCart">
+      <img src="{{ currentProduct.product.url }}" >
+      <input class="number-input" type="number" value="{{ currentProduct.quantity }}">
+    </div>
+  </div>
+  <div>
+    {{ totalPrice }}
+  </div>
+</div>
