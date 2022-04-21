@@ -8,6 +8,10 @@ import { ProductService, ProductInCart } from '../services/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  fullName:string = '';
+  address:string = '';
+  creditCardNumber:string = '';
+
   currentCart:ProductInCart[] = [];
   totalPrice:number = 0;
   
@@ -18,5 +22,13 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.currentCart = this.productService.getCart();
     this.totalPrice = this.productService.getCartTotal();
+  }
+
+  onSubmit():void {
+    console.log(`
+      Full Name: ${this.fullName},
+      Addres: ${this.address},
+      Credit Card Number: ${this.creditCardNumber}
+    `)
   }
 }

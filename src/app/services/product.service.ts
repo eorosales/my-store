@@ -46,11 +46,12 @@ export class ProductService {
     const totalPricePerProduct = this.productsInCart.map(p => {
       return p.product.price * p.quantity
     })
+    
     // Add the total cost of each product in the cart returning the sum of the cart 
     const sumOfProductsInCart = totalPricePerProduct.reduce((previousValue, currentValue) => previousValue + currentValue,
-    this.totalCost
+    0
     );
-    return this.totalCost = sumOfProductsInCart;
+    return this.totalCost = Number(sumOfProductsInCart.toString().match(/^\d+(?:\.\d{0,2})?/));
   }
  
 }

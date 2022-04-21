@@ -5,7 +5,7 @@
   <div class="detail-item">
 
     <h3>{{ selectedProduct.name }}</h3>
-    <p>{{ selectedProduct.price }}</p>
+    <p>${{ selectedProduct.price }}</p>
     <p>{{ selectedProduct.description }}</p>
     
     <app-form-add-to-cart
@@ -13,7 +13,7 @@
     >
     </app-form-add-to-cart>
 
-    <a routerLink="/" class="back-link">Back to products list</a>
+    <a routerLink="/" class="back-link">&larr; Back to products list</a>
 
   </div>
 

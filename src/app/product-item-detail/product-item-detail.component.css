@@ -24,4 +24,17 @@ img {
 
 .back-link {
   margin-top: 8px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: blue;
+}
+
+h3 {
+  margin: 0.8em 0;
+}
+
+p {
+  line-height: 2em;
 }

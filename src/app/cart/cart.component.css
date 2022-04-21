@@ -3,8 +3,37 @@ img {
   border-radius: 10px;
 }
 
-.form-margin {
+.form {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 12px;
+  margin-left: 4em;
+}
+
+.form > label {
+  margin-bottom: 0.6em;
+  margin-top: 1em;
+}
+
+.form > input {
+  line-height: 1.4em;
+  padding: 0.6em;
+}
+
+.form > p {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 1.2em 0;
+}
+
+.form > button {
+  background-color: deepskyblue;
+  border: none;
+  color: #fff;
+  padding: 8px;
+  width: 64px;
+  border-radius: 0.4em;
+  transition: all 100ms ease-in-out;
 }
 
 .cart-item {
@@ -24,6 +53,7 @@ img {
 .number-input {
   width: 80px;
   text-align: center;
+  line-height: 1.8em;
 }
 
 .cart-container {
@@ -36,6 +66,7 @@ img {
 .cart-panel {
   margin-left: 50px;
   margin-right: 50px;
+  line-height: 2.4em;
 }
 
 .empty-cart-message {
