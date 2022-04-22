@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, toArray } from 'rxjs';
 import { HttpClient } from '@angular/common/http'; 
 import { Product } from '../models/Product';
 
@@ -34,11 +34,11 @@ export class ProductService {
 
   addProductToCart(productQuantity:ProductInCart) {
     const productCheck = this.productsInCart.find(p => {
-      p.product.id === productQuantity.product.id
+      return p.product.id === productQuantity.product.id
     })
-    productCheck ?  
-    console.log(this.productsInCart) :
-    this.productsInCart.push(productQuantity)
+    !productCheck ? 
+    this.productsInCart.push(productQuantity) :
+    alert("Item already in cart!");
   };
 
   getCartTotal() {
@@ -52,6 +52,13 @@ export class ProductService {
     0
     );
     return this.totalCost = Number(sumOfProductsInCart.toString().match(/^\d+(?:\.\d{0,2})?/));
+  }
+
+  removeProductFromCart(currentProduct:ProductInCart):ProductInCart[] {
+    const updatedCart = this.productsInCart.filter(p => {
+      return p !== currentProduct;
+    })
+    return this.productsInCart = updatedCart;
   }
  
 }

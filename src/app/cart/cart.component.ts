@@ -24,10 +24,12 @@ export class CartComponent implements OnInit {
     this.totalPrice = this.productService.getCartTotal();
   }
 
-  productQuantityChange(currentProduct:ProductInCart, event:any): void {
-    const newQuantity = event.target.value;
-    currentProduct.quantity = newQuantity;
-    this.totalPrice = this.productService.getCartTotal();
+  amountChange(currentProduct:ProductInCart): void {
+    if(currentProduct.quantity == 0 ) {  
+      this.productService.removeProductFromCart(currentProduct);
+    };
+    this.currentCart = this.productService.getCart();
+    this.totalPrice = this.productService.getCartTotal(); 
   }
 
   onSubmit():void {

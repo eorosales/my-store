@@ -6,11 +6,11 @@
         <h3>{{ currentProduct.product.name }}</h3>
         <p>${{ currentProduct.product.price }}</p>
         <p>Amount: 
-          <input 
+          <input
             class="number-input" 
-            type="number" 
-            value="{{ currentProduct.quantity }}"
-            (change)="productQuantityChange(currentProduct, $event)"
+            type="number"
+            [(ngModel)]="currentProduct.quantity" 
+            (change)="amountChange(currentProduct)"
           >
         </p>
       </div>
