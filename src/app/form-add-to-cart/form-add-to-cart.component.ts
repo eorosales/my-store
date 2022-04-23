@@ -27,12 +27,11 @@ export class FormAddToCartComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const productQuantity = { 
+    const productAndQuantity = { 
       product: this.selectedProduct,
       quantity: this.selectedQuantity
     }
-    this.productService.addProductToCart(productQuantity);
-    alert(`${this.selectedProduct.name} x ${this.selectedQuantity} added to your cart!`)
+    this.productService.addProductToCart(productAndQuantity);
   }
 
 }

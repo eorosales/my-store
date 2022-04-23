@@ -3,6 +3,9 @@
   width: 290px;
   padding: 20px;
   margin: 6px 6px;
+}
+
+.product-image:hover {
   border: 1px solid #33b5e5;
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService, ProductInCart } from '../services/product.service';
+import { NgForm } from '@angular/forms';
+import { ProductService, ProductInCart, FormInputs } from '../services/product.service';
 
 
 @Component({
@@ -11,9 +12,11 @@ export class CartComponent implements OnInit {
   currentCart:ProductInCart[] = [];
   totalPrice:number = 0;
 
-  fullName:string = '';
-  address:string = '';
-  creditCardNumber:string = '';
+  formInputs:FormInputs = {
+    fullName: '',
+    address: '',
+    creditCardNumber: ''
+  }
   
   constructor(
     private productService:ProductService
@@ -25,18 +28,32 @@ export class CartComponent implements OnInit {
   }
 
   amountChange(currentProduct:ProductInCart): void {
-    if(currentProduct.quantity == 0 ) {  
+    if(currentProduct.quantity == 0 || currentProduct.quantity === undefined) {  
       this.productService.removeProductFromCart(currentProduct);
+      setTimeout(() => {
+        alert(`${currentProduct.product.name} has been removed from your cart!`)
+      }, 100)
     };
     this.currentCart = this.productService.getCart();
     this.totalPrice = this.productService.getCartTotal(); 
+
   }
 
-  onSubmit():void {
-    console.log(`
-      Full Name: ${this.fullName},
-      Addres: ${this.address},
-      Credit Card Number: ${this.creditCardNumber}
-    `)
+  onSubmit(formInputs:NgForm):void {
+    const submittedInfo = this.formInputs = {
+      fullName: formInputs.value.fullName,
+      address: formInputs.value.address,
+      creditCardNumber: formInputs.value.creditCardNumber
+    }
+    this.productService.onCartSubmit(submittedInfo, this.totalPrice);
+    // Empty and reset cart
+    this.currentCart.length = 0;
+    this.totalPrice = 0;
+    this.formInputs = {
+      fullName: '',
+      address: '',
+      creditCardNumber: ''
+    }
+
   }
 }

@@ -10,7 +10,7 @@
             class="number-input" 
             type="number"
             [(ngModel)]="currentProduct.quantity" 
-            (change)="amountChange(currentProduct)"
+            (ngModelChange)="amountChange(currentProduct)"
           >
         </p>
       </div>
@@ -21,14 +21,14 @@
   <form 
     #form="ngForm" 
     class="form" 
-    (ngSubmit)="onSubmit()">
+  >
 
     <label>Full name</label>
     <input 
       type="text" 
       name="fullName" 
       required 
-      [(ngModel)]="fullName"  
+      [(ngModel)]="formInputs.fullName"  
       placeholder="(minimum 3 characters)" 
     >
 
@@ -37,7 +37,7 @@
       type="text" 
       name="address" 
       required 
-      [(ngModel)]="address"
+      [(ngModel)]="formInputs.address"
       placeholder="(minimum 6 characters)" 
     >   
 
@@ -46,19 +46,23 @@
       type="text" 
       name="creditCardNumber" 
       required 
-      [(ngModel)]="creditCardNumber"
+      [(ngModel)]="formInputs.creditCardNumber"
       placeholder="(16-digit number)"
     >   
 
     <p>We'll never share your payment details with anyone else.</p>
 
     <button 
-      type="submit" 
+      type="button"
+      (click)="onSubmit(form)" 
       [disabled]="form.invalid"
+      routerLink="/confirmation"
     >
       Submit
     </button>
 
   </form>
+
+
 
 </div>
