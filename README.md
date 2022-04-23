@@ -1,27 +1,20 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This project is a full single page e-commerce application created using Angular. Users have the ability to browse a list of products, view details on individual products, and add a selected quantiity to a cart. On the cart page, added products can be viewed along with the total cost of all the products combined. Alerts are shown when a product is added to the cart and when a product's quantity reaches '0' and is removed from the cart. Once the form is submitted with validated information, a success page is show with the user's name and the total cost of their order.
 
-## Development server
+## Project Set Up
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To get started, clone or download the repository and cd into the project root directory.
 
-## Code scaffolding
+```
+git clone https://github.com/eorosales/my-store.git
+cd my-store
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Once in the project root directory, run `npm install` to install necessary dependencies.
 
-## Build
+To serve the project, run `ng serve`. The project can be viewed at `http://localhost:4200/`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Run Tests
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `ng test` to apply unit tests.
