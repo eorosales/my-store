@@ -26,7 +26,7 @@ img {
   margin: 1.2em 0;
 }
 
-.form > button {
+.form > button.submit-button {
   background-color: deepskyblue;
   border: none;
   color: #fff;
@@ -34,6 +34,11 @@ img {
   width: 64px;
   border-radius: 0.4em;
   transition: all 100ms ease-in-out;
+}
+
+.form > button.submit-button:disabled {
+  background-color: #999;
+  opacity: 0.4;
 }
 
 .cart-item {
@@ -67,10 +72,4 @@ img {
   margin-left: 50px;
   margin-right: 50px;
   line-height: 2.4em;
-}
-
-.empty-cart-message {
-  display: flex;
-  justify-content: center;
-  margin-top: 64px;
 }

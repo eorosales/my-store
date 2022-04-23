@@ -1,6 +1,9 @@
 <div class="cart-container">
   <div class="cart-panel">  
-    <div class="cart-item" *ngFor="let currentProduct of currentCart">
+    <div 
+      class="cart-item" 
+      *ngFor="let currentProduct of currentCart"
+    >
       <img src="{{ currentProduct.product.url }}" >
       <div class="cart-item-details">
         <h3>{{ currentProduct.product.name }}</h3>
@@ -17,7 +20,7 @@
     </div>
     <h2>${{ totalPrice }}</h2>
   </div>
-
+  
   <form 
     #form="ngForm" 
     class="form" 
@@ -46,6 +49,8 @@
       type="text" 
       name="creditCardNumber" 
       required 
+      minlength="16"
+      maxlength="16"
       [(ngModel)]="formInputs.creditCardNumber"
       placeholder="(16-digit number)"
     >   
@@ -54,6 +59,7 @@
 
     <button 
       type="button"
+      class="submit-button"
       (click)="onSubmit(form)" 
       [disabled]="form.invalid"
       routerLink="/confirmation"

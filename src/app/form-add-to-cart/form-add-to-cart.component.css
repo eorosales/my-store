@@ -2,20 +2,6 @@ input {
   text-align: center;
 }
 
-button {
-  background-color: deepskyblue;
-  border: none;
-  border-radius: 0.2em;
-  padding: 0.6em 0.8em;
-  color: #fff;
-  transition: all 100ms ease-in-out;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: blue;
-}
-
 .select-input {
   width: 108px;
   margin-bottom: 8px;
