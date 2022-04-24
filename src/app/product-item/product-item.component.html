@@ -7,10 +7,13 @@
   </a>
   <h4>{{ product.name }}</h4>
   <p>${{ product.price }}</p>
-  <app-form-add-to-cart
-    class="select-input"
-    [selectedProduct]="product"
-  >
-  </app-form-add-to-cart>
+  
+    
+  <select class="select-input" [(ngModel)]="selectedQuantity" #amount>
+    <option *ngFor="let quantity of quantities" name="quantity">{{ quantity }}</option>
+  </select>
+  <br>
+  <button type="submit" (click)="addProduct(product, amount.value)" >Add to Cart</button>
+
 
 </div>

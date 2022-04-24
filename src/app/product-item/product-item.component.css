@@ -18,6 +18,11 @@
   justify-content: flex-start;
 }
 
-.select-input {
+input {
   text-align: center;
+}
+
+.select-input {
+  width: 108px;
+  margin-bottom: 8px;
 }

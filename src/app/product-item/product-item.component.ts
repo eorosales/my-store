@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../models/Product';
-import { ProductService } from '../services/product.service';
+import { ProductInCart, ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-item',
@@ -15,12 +15,22 @@ export class ProductItemComponent implements OnInit {
     url: '',
     description: ''
   }
-  quantities:number[] = [];
+  @Input() quantities:number[] = [];
+  @Output() productAndQuantity = new EventEmitter();
+  selectedQuantity:number = 1;
 
   constructor(private productService:ProductService) { }
 
-  ngOnInit(): void {
-    this.quantities = this.productService.setQuantities();
+  ngOnInit(): void { 
+    this.product;
+  }
+
+  addProduct(product:Product, quantity:string) {
+    const selection = { 
+      product,
+      quantity
+    }
+    this.productAndQuantity.emit(selection);
   }
 
 }
