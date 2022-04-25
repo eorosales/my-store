@@ -10,12 +10,17 @@ img {
   margin-left: 4em;
 }
 
-.form > label {
+.form > .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > .input-group > label {
   margin-bottom: 0.6em;
   margin-top: 1em;
 }
 
-.form > input {
+.form > .input-group > input {
   line-height: 1.4em;
   padding: 0.6em;
 }
@@ -39,6 +44,11 @@ img {
 .form > button.submit-button:disabled {
   background-color: #999;
   opacity: 0.4;
+}
+
+.form > .input-group > span {
+  color: red;
+  font-size: 0.8em;
 }
 
 .cart-item {
